@@ -8,25 +8,13 @@ interface IProps {
         title: string;
         isComplete: boolean;
     }[];
-    owner: string;
-    age: number;
-    isDeveloper: boolean;
-}
-
-// type definition
-type TProps = {
-    todos: {
-        id: number;
-        title: string;
-        isComplete: boolean;
-    }[];
-    owner: string;
-    age: number;
-    isDeveloper: boolean;
+    owner?: string;
+    age?: number;
+    isDeveloper?: boolean;
 }
 
 const TodoData = (props: IProps) => {
-    const { todos, owner } = props;
+    const { todos, owner = "unknown" } = props;
     return (
         <div>
             <div>Owner: {owner}</div>
