@@ -1,14 +1,16 @@
+import { useState } from "react";
 
 interface IProps {
     name?: string;
 }
 
 const TodoInput = (props: IProps) => {
-    const { name = "hihi" } = props; // default value for name if not pass props
+    // string
+    const [todo, setTodo] = useState<string>("");
 
     return (
         <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
-            <input value={name} type="text" />
+            <input type="text" />
             <button>Add todo</button>
         </div>
     )
