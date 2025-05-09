@@ -34,6 +34,11 @@ const TodoList = () => {
         setTodoList([...todoList, todo]);
     }
 
+    const deleteTodo = (id: number) => {
+        const newTodoList = todoList.filter(item => item.id !== id); // chỉ lấy những item có id khác với id truyền vào
+        setTodoList(newTodoList);
+    }
+
     return (
         <div style={{
             width: "600px",
@@ -59,6 +64,7 @@ const TodoList = () => {
             />
             <TodoData
                 todos={todoList}
+                deleteTodo={deleteTodo}
             // owner={"Nam Hoang"}
             // age={20}
             // isDeveloper={true}

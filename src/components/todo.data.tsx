@@ -11,10 +11,13 @@ interface IProps {
     owner?: string;
     age?: number;
     isDeveloper?: boolean;
+
+    deleteTodo: (v: number) => void; // viết tắt value là v
 }
 
 const TodoData = (props: IProps) => {
-    const { todos, owner = "unknown" } = props;
+    const { todos, owner = "unknown", deleteTodo } = props;
+
     return (
         <div>
             {todos.map(item => {
@@ -22,7 +25,7 @@ const TodoData = (props: IProps) => {
                     <div key={item.id}>
                         <div style={{ padding: "10px 0" }}>
                             {item.id} - {item.title}
-                            &nbsp;&nbsp;&nbsp;<button>Delete</button>
+                            &nbsp;&nbsp;&nbsp;<button onClick={() => deleteTodo(item.id)}>Delete</button>
                         </div>
                     </div>
                 )
